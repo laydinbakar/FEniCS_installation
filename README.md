@@ -33,6 +33,7 @@ Then you should see the output below:
 NAME STATE VERSION
 * Ubuntu -20.04 Running 2
 ```
+![powershell](./figures/wsl2_update.png)
 
 ## FEniCS on Docker
 We use FEniCS on Jupyter Notebook using Docker. 
@@ -41,8 +42,14 @@ Use the following commands to install Docker on the Ubuntu Terminal.
 ```
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt install --no-install-recommends apt-transport-https ca-certificates curl gnupg2
+source /etc/os-release
+curl -fsSL https://download.docker.com/linux/${ID}/gpg | sudo apt-key add -
+echo "deb [arch=amd64] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
 ```
+
 Now, you need to start a docker container daemon. Run
 ```
 sudo dockerd
@@ -52,6 +59,10 @@ In the new terminal run:
 ```
 sudo docker run --name notebook -w /home/fenics -v $(pwd):/home/fenics/shared -d -p $(docker-machine ip $(docker-machine active)):8888:8888 quay.io/fenicsproject/stable 'jupyter-notebook --ip=0.0.0.0'
 ```
-This process will take for a while for the first time. It will download over 300 MB of FEniCS files.
+This process will take for a while for the first time. It will download around 500 MB of FEniCS files.
+![docker](./figures/install_fenics.png)
+
 Later, follow the figure below to open a Jupyter Notebook including FEniCS.
 ![jupyter_notebook_fenics](./figures/jn_fenics.png)
+![open_jn](./figures/open_jn.png)
+
