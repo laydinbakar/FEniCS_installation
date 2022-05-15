@@ -3,6 +3,6 @@ This repository is for students of CFD and FEM Courses at Bursa Technical Univer
 
 ## Enabling WSL and Hypre-V on Windows
 First enable WSL and Hypre-V as follows:
-![]("figures/enable_wsl_hypreV.png")
+![enable_wsl](./figures/enable_wsl_hypreV.png)
 
 
