@@ -1,9 +1,9 @@
 # Convert `msh` file into `xdmf` format
-We need [this script](https://github.com/laydinbakar/FEniCS_installation/tree/main/scripts/xdmf2msh.py) to convert a mesh from `msh` to `xdmf` format. Download it into the directory where your mesh file is in.
+We need [this script](https://github.com/laydinbakar/FEniCS_installation/blob/main/scripts/msh2xdmf.py) to convert a mesh from `msh` to `xdmf` format. Download it into the directory where your mesh file is in.
 Later, run the following command on Ubuntu Terminal on the same directory.
 ```
-python3 msh2xdmf.py --mesh_name your-mesh-file-name --dim 2
-python3 msh2xdmf.py --mesh_name your-mesh-file-name --dim 3
+python3 msh2xdmf.py --mesh_name mesh-file-name --dim 2
+python3 msh2xdmf.py --mesh_name mesh-file-name --dim 3
 
 ```
 for a 2D mesh or a 3D mesh respectively.
@@ -15,10 +15,10 @@ sudo apt-get install python3-meshio
 and repeat running `msh2xdmf.py` script as explained above.
 
 Finally, you will have 4 more files as 
-* `your-mesh-file-name_mesh.xdmf`
-* `your-mesh-file-name_mesh.h5`
-* `your-mesh-file-name_bcs.xdmf`
-* `your-mesh-file-name_bcs.h5`
+* `mesh-file-name_mesh.xdmf`
+* `mesh-file-name_mesh.h5`
+* `mesh-file-name_bcs.xdmf`
+* `mesh-file-name_bcs.h5`
 These files will include mesh and boundary information.
 
 # Read xdmf file into FEniCS
